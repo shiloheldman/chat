@@ -1,0 +1,314 @@
+HTML CSSResult Skip Results Iframe :root {
+  /* General settings */
+  font-size: 16px;
+  --font-primary: "Ubuntu", sans-serif;
+  font-family: var(--font-primary);
+  /* Colors */
+  --color_light: #fff;
+  --color_dark: #313140;
+  --color_primary: #383aab;
+  --color_primary_shade-one: #aaacff;
+  --color_primary_shade-two: #383881;
+  --color_accent_red: #d1206f;
+  --color_accent_green: #38ab80;
+}
+
+body {
+  background-color: #383aab;
+}
+
+/* General styles */
+body {
+  margin: 0;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.parallax-wrapper {
+  height: 100vh;
+  background: var(--color_dark);
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+
+.block img {
+  border-radius: 60% 12% 45% 12%;
+}
+
+header {
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: clamp(300px, 75vmax, 85%);
+  position: relative;
+  z-index: -1;
+  padding: 0 4rem;
+}
+
+header h1 {
+  color: var(--color_light);
+  font-family: var(--font-primary);
+  position: absolute;
+  transform: translateZ(-15px) scale(2.5);
+  top: 0;
+  font-size: clamp(4rem, 6vmax, 6rem);
+  display: flex;
+  flex-direction: column;
+  transform-origin: bottom center;
+  margin-bottom: 0;
+  margin-top: 15vmin;
+}
+
+section.story {
+  font-size: 2rem;
+  color: var(--color_primary_shade-one);
+  line-height: 1.5;
+  letter-spacing: 1px;
+  background: linear-gradient(180deg, var(--color_dark), var(--color_primary_shade-two));
+  font-family: var(--font-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  position: relative;
+  transform: translateZ(0px);
+  flex-direction: column;
+}
+
+section.story:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100vw;
+  height: 20vmax;
+  top: -8vw;
+  background-image: url("https://svgshare.com/i/r29.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+section.story h2 {
+  margin-top: 0;
+  margin-bottom: 4rem;
+}
+
+section .inner {
+  max-width: 1024px;
+  z-index: 999999;
+  padding: 4rem 10vw 0 10vw;
+  transform-style: preserve-3d;
+  perspective: 10px;
+  perspective-origin: left;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  width: calc(100% - 20vw);
+}
+
+section .block p {
+  flex-grow: 1;
+  flex-basis: 30ch;
+}
+
+section .block {
+  display: flex;
+  column-gap: 4rem;
+  align-items: start;
+  flex-wrap: wrap;
+  row-gap: 2rem;
+  justify-content: space-around;
+}
+
+.block > div {
+  flex-grow: 1;
+  flex-basis: 30ch;
+}
+
+section p {
+  max-width: 55ch;
+  margin: 0;
+}
+
+section .inner p:nth-child(1) {
+  margin-top: 0;
+}
+
+.parallax-el {
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  transform-origin: center bottom;
+  z-index: -1;
+}
+
+section strong {
+  color: var(--color_light);
+  padding: 0 4px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-transform: capitalize;
+  letter-spacing: 3px;
+  font-weight: 600;
+  margin: 0 0.35rem;
+}
+
+section strong:after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: var(--color_primary);
+  width: 106%;
+  height: 50%;
+  left: -3%;
+  z-index: -1;
+  transform: rotate(358deg);
+}
+
+/* Highlight element */
+strong[data-style=blue]:after {
+  background: var(--color_primary);
+}
+
+strong[data-style=red]:after {
+  background: var(--color_accent_red);
+}
+
+strong[data-style=green]:after {
+  background: var(--color_accent_green);
+}
+
+/* Landscape elements */
+.parallax-el[data-paralax="4"] {
+  transform: translateZ(-50px) translateY(110vmax) scale(600%);
+}
+
+.parallax-el[data-paralax="5"] {
+  transform: translateZ(-20px) translateY(70vmax) scale(300%);
+}
+
+.parallax-el[data-paralax="6"] {
+  transform: translateZ(-10px) translateY(60vmax) scale(200%);
+}
+
+/* Space bodies elements */
+.parallax-el[data-paralax="1"] {
+  transform: translateZ(-55px) scale(1200%);
+  top: 0;
+}
+
+.parallax-el[data-paralax="2"] {
+  transform: translateZ(-40px) scale(5) rotate(5deg);
+  top: 0;
+}
+
+.parallax-el[data-paralax="3"] {
+  transform: translateZ(-65px) scale(4);
+  top: 0;
+}
+
+/* Credits */
+section.credits {
+  background: transparent;
+  z-index: 999999;
+  display: inline-flex;
+  color: var(--color_light);
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 4rem 4rem 4rem;
+}
+
+address.credits {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+address.credits .row {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+address.credits a {
+  color: inherit;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+address.credits a:after {
+  content: "";
+  background: url(https://svgshare.com/i/r2k.svg);
+  width: 4rem;
+  height: 4rem;
+  display: inline-flex;
+  position: absolute;
+  right: -2rem;
+  z-index: -1;
+  transform: rotate(358deg);
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+  top: -0.8rem;
+}
+
+address.credits a:hover:after {
+  opacity: 1;
+  transition: 0.2s ease-in-out;
+  right: -4rem;
+  z-index: -1;
+}
+
+address.credits .job {
+  color: inherit;
+  font-size: 0.75em;
+  font-family: monospace;
+}
+
+img.credits-img {
+  position: absolute;
+  bottom: 0;
+  opacity: 0.75;
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 13px;
+  }
+}
+*::-webkit-scrollbar {
+  background-color: #383aab;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #38ab80;
+  border-radius: 2px;
+}
+
+#h1-h1 {
+  color: #Fff;
+  font-size: 51px;
+  transform: translateY(-100px);
+  position: fixed;
+  text-align: center;
+  animation: pon 1s linear infinite alternate;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+@keyframes pon {
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
